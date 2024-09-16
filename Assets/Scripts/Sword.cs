@@ -5,6 +5,7 @@ using UnityEngine;
 public class Sword : MonoBehaviour
 {
     Camera cam;
+    public AudioClip splashsound;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class Sword : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Audio.Play(splashsound);
         Destroy(other.gameObject);
     }
 }
