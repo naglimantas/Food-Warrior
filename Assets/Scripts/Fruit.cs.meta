@@ -3,7 +3,9 @@ guid: d658f909f3975a543a84670e9e767d41
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - splashSound: {fileID: 8300000, guid: 790227bfb94b6124eb29a1fab04aedef, type: 3}
+  - splashParticles: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -1,19 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
 
-    public GameObject prefab;
+    public GameObject[] prefabs;
 
     void Start()
     {
-        InvokeRepeating("Spawn", 1f, 1f);
+        Spawn();
     }
 
-    void Spawn()
+    async void Spawn()
     {
-        Instantiate(prefab, transform.position, Quaternion.identity);
+        while (true) 
+        {
+            await new WaitForSeconds(Random.Range(0.5f, 2f));
+            GameObject obj = prefabs[Random.Range(0, prefabs.Length)];
+            Vector3 pos = transform.position + Vector3.right * Random.Range(-5f, 5f);
+
+            Instantiate(prefabs[0], transform.position, Quaternion.identity);
+        }
+        
     }
 }
