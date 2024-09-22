@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2a55fc9e02614cd48dabbc55a506f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splashSound: {fileID: 8300000, guid: 80b92fc8bd53a8245ab3819ae639e6b7, type: 3}
 --- !u!1001 &721494227068578455
 PrefabInstance:
   m_ObjectHideFlags: 0

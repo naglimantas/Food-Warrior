@@ -2,9 +2,27 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
+    public AudioClip splashSound;
+
     void Start()
     {
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, 12f);
     }
 
+    public void Slice()
+    {
+        Audio.Play(splashSound);
+
+        foreach (Transform child in GetComponentsInChildren<Transform>())
+        {
+            if(child == transform) continue;
+
+            Rigidbody2D rb = child.gameObject.AddComponent<Rigidbody2D>();
+            rb.velocity = GetComponent<Rigidbody2D>().velocity + Random.insideUnitCircle * 5f;
+            rb.angularVelocity = Random.Range(-10f, 10f);
+        }
+
+        transform.DetachChildren();
+        Destroy(gameObject);
+    }
 }
