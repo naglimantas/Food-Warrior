@@ -3,6 +3,8 @@ using UnityEngine;
 public class Fruit : MonoBehaviour
 {
     public AudioClip splashSound;
+    public ParticleSystem splashParticles;
+    public Color splashColor;
 
     void Start()
     {
@@ -21,6 +23,9 @@ public class Fruit : MonoBehaviour
             rb.velocity = GetComponent<Rigidbody2D>().velocity + Random.insideUnitCircle * 5f;
             rb.angularVelocity = Random.Range(-10f, 10f);
         }
+
+        ParticleSystem particles = Instantiate( splashParticles, transform.position, Quaternion.identity );
+        particles.startColor = splashColor;
 
         transform.DetachChildren();
         Destroy(gameObject);

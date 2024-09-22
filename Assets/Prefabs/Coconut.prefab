@@ -111,6 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashSound: {fileID: 8300000, guid: 6315b246097e2dc4b98d417547c06cb4, type: 3}
+  splashParticles: {fileID: 5065897898058063847, guid: 97f8a5dbffc0b4f28ad510663e9ed32e, type: 3}
+  splashColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &3025490677142269769
 PrefabInstance:
   m_ObjectHideFlags: 0
