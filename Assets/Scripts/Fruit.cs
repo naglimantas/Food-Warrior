@@ -5,6 +5,7 @@ public class Fruit : MonoBehaviour
     public AudioClip splashSound;
     public ParticleSystem splashParticles;
     public Color splashColor;
+    public bool isBomb;
 
     void Start()
     {
@@ -14,6 +15,10 @@ public class Fruit : MonoBehaviour
     public void Slice()
     {
         Audio.Play(splashSound);
+        if (isBomb)
+        {
+            print(":(");
+        }
 
         foreach (Transform child in GetComponentsInChildren<Transform>())
         {
