@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Fruit : MonoBehaviour
 {
@@ -6,11 +7,11 @@ public class Fruit : MonoBehaviour
     public ParticleSystem splashParticles;
     public Color splashColor;
     public bool isBomb;
-    
+    public string nextSceneName;
 
-    private void Update()
+    void Update()
     {
-        if(transform.position.y < -7 && !isBomb) //! reiskia exclude/isnt 
+        if (transform.position.y < -7 && !isBomb)
         {
             GameManager.instance.Damage(1);
             Destroy(gameObject);
@@ -22,26 +23,31 @@ public class Fruit : MonoBehaviour
         Audio.Play(splashSound);
         if (isBomb)
         {
-            GameManager.instance.Damage(999999);
+            GameManager.instance.Damage(3);
         }
         else
         {
-            GameManager.instance.Addscore(1);
+            GameManager.instance.AddScore(1);
         }
 
         foreach (Transform child in GetComponentsInChildren<Transform>())
         {
-            if(child == transform) continue;
+            if (child == transform) continue;
 
             Rigidbody2D rb = child.gameObject.AddComponent<Rigidbody2D>();
             rb.velocity = GetComponent<Rigidbody2D>().velocity + Random.insideUnitCircle * 5f;
             rb.angularVelocity = Random.Range(-10f, 10f);
         }
 
-        ParticleSystem particles = Instantiate( splashParticles, transform.position, Quaternion.identity );
+        ParticleSystem particles = Instantiate(splashParticles, transform.position, Quaternion.identity);
         particles.startColor = splashColor;
 
         transform.DetachChildren();
         Destroy(gameObject);
+
+        if (nextSceneName != "Gameplay")
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
     }
 }

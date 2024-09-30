@@ -113,6 +113,7 @@ MonoBehaviour:
   splashSound: {fileID: 8300000, guid: 80b92fc8bd53a8245ab3819ae639e6b7, type: 3}
   splashParticles: {fileID: 5065897898058063847, guid: 97f8a5dbffc0b4f28ad510663e9ed32e, type: 3}
   splashColor: {r: 0.87058824, g: 0.40415445, b: 0.32549015, a: 1}
+  isBomb: 0
 --- !u!1001 &721494227068578455
 PrefabInstance:
   m_ObjectHideFlags: 0

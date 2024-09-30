@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using System.Data;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] TMP_Text livesText; // ne public o sreialize field kad "hackeriai" nepridarytu gyvybiu
+    [SerializeField] TMP_Text livesText;
     [SerializeField] TMP_Text scoreText;
 
-    int lives;
+    int lives = 3;
     int score;
 
     public static GameManager instance;
@@ -17,22 +14,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip failSound;
     [SerializeField] GameObject gameOverScreen;
 
-    private void Start()
+    void Start()
     {
         instance = this;
     }
 
-    public void Addscore(int value)
+    public void AddScore(int value = 1)
     {
         score += value;
         scoreText.text = score.ToString();
     }
 
-    public void Damage(int value=1)
+    public void Damage(int value = 1)
     {
-        lives-=value;
+        lives -= value;
         if (lives <= 0) GameOver();
-        livesText.text = lives + "lives";
+        livesText.text = lives + " lives";
         Audio.Play(failSound);
     }
 
